@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllProducts, getProductsByCategory } from "../lib/utils";
 import Product from "../components/Shop/Product";
 import FilterSiderBar from "../components/Shop/Filter";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import Product from "../Shop/Product";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";

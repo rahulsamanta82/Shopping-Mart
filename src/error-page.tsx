@@ -1,6 +1,7 @@
 import { Link, useRouteError } from "react-router-dom";
 import Navbar from "./components/Layout/Navbar";
 import { Button } from "./components/ui/button";
+
 interface RouteError {
   statusText?: string;
   message?: string;
