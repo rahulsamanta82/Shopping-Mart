@@ -11,7 +11,7 @@ export async function getAllProducts(): Promise<IProduct[]> {
     .catch((error) => console.log("Can't fetch the Products: ", error.message));
 }
 
-export async function getProduct(productId: number): Promise<IProduct | null> {
+export async function getProduct(productId: string): Promise<IProduct | null> {
   return fetch(`https://fakestoreapi.com/products/${productId}`)
     .then((res) => res.json())
     .catch((error) => console.log("Can't fetch the Product: ", error.message));

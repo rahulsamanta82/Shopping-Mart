@@ -3,6 +3,7 @@ import React from "react";
 import Product from "../Shop/Product";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import { SkeletonCard } from "../ui/skeletonCard";
 
 const FeaturedProducts = ({ products }: { products: IProduct[] }) => {
   return (
@@ -18,9 +19,13 @@ const FeaturedProducts = ({ products }: { products: IProduct[] }) => {
           </p>
         </div>
         <div className="grid  md:grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">
-          {products.slice(0, 4).map((product) => (
-            <Product product={product} key={product.id} />
-          ))}
+          {products.length <= 0
+            ? Array.from({ length: 4 }).map((_, i) => <SkeletonCard key={i} />)
+            : products
+                .slice(0, 4)
+                .map((product) => (
+                  <Product product={product} key={product.id} />
+                ))}
         </div>
       </div>
       <Link to="/shop">

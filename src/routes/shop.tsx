@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllProducts, getProductsByCategory } from "../lib/utils";
 import Product from "../components/Shop/Product";
 import FilterSiderBar from "../components/Shop/Filter";
+import { SkeletonCard } from "../components/ui/skeletonCard";
 
 const Shop = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -39,10 +40,10 @@ const Shop = () => {
   console.log(products);
 
   return (
-    <div className="flex container flex-col py-20">
+    <main className="flex  container flex-col py-20">
       <h1 className="text-4xl text-center pb-10">Our Shop</h1>
       <div className="flex gap-5">
-        <div className="w-1/6 p-2">
+        <div className="w-1/6 p-2 border-r-2 h-[380px]  ">
           <FilterSiderBar
             filterProductsByCategory={filterProductsByCategory}
             filterProductsByPrice={filterProductsByPrice}
@@ -51,9 +52,11 @@ const Shop = () => {
 
         <div className="grid grid-cols-3 gap-5 w-3/4 ">
           {products?.length <= 0 ? (
-            <p>Loading Products...</p>
+            Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
           ) : filteredProducts.length <= 0 ? (
-            <p>No Products in Stock</p>
+            <h2 className="text-2xl font-bold flex h-[40vh] justify-center w-full items-center">
+              No Products in Stock
+            </h2>
           ) : (
             filteredProducts?.map((product) => {
               return <Product key={product.id} product={product} />;
@@ -61,7 +64,7 @@ const Shop = () => {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

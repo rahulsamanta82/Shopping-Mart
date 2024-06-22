@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { navLinks } from "../../constants";
-import { Button } from "../ui/button";
+import Cart from "../Shop/Cart";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <header className="pb-6 bg-white lg:pb-0">
+    <header className="pb-6 bg-white shadow-md sticky top-0 z-10 lg:pb-0">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 transition-all duration-300 delay-100">
         <nav className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex-shrink-0">
@@ -65,7 +65,9 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <Button className="mx-4">Cart</Button>
+          <div className="pl-5">
+            <Cart showCart={true} />
+          </div>
         </nav>
         {/* xs to lg */}
         {mobileMenu && <MobileNav />}

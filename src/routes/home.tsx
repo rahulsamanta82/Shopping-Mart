@@ -21,10 +21,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="">
+    <main className="">
       <Banner />
       <FeaturedProducts products={products} />
-    </div>
+    </main>
   );
 };
 
