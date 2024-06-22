@@ -1,18 +1,17 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { type Product } from "./types";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export async function getAllProducts(): Promise<Product[]> {
+export async function getAllProducts(): Promise<IProduct[]> {
   return fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .catch((error) => console.log("Can't fetch the Products: ", error.message));
 }
 
-export async function getProduct(productId: number): Promise<Product | null> {
+export async function getProduct(productId: number): Promise<IProduct | null> {
   return fetch(`https://fakestoreapi.com/products/${productId}`)
     .then((res) => res.json())
     .catch((error) => console.log("Can't fetch the Product: ", error.message));
@@ -20,7 +19,7 @@ export async function getProduct(productId: number): Promise<Product | null> {
 
 export async function getProductsByCategory(
   category: string
-): Promise<Product[]> {
+): Promise<IProduct[]> {
   if (category.length <= 0) {
     return await getAllProducts();
   }

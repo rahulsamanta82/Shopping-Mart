@@ -6,6 +6,8 @@ import ErrorPage from "./error-page";
 import Root from "./routes/root.tsx";
 import Home from "./routes/home.tsx";
 import Contact from "./routes/contact.tsx";
+import Shop from "./routes/shop.tsx";
+import ProductDetails from "./routes/product-details.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "shop",
+        element: <Shop />,
+      },
+      {
+        path: "shop/:id",
+        element: <ProductDetails />,
       },
     ],
   },
