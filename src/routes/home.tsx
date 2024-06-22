@@ -1,11 +1,9 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+import Banner from "../components/Home/Banner";
 
 const Home = () => {
   return (
     <div className="">
-      <h1>HOe</h1>
-      <Button>Click me</Button>
+      <Banner />
     </div>
   );
 };
