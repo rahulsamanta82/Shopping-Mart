@@ -14,8 +14,8 @@ const FeaturedProducts = ({ products }: { products: IProduct[] }) => {
             Our featured items
           </h2>
           <p className="mt-4 text-base font-normal leading-7 text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus
-            faucibus massa dignissim tempus.
+            Check out our latest products and get the best deals. Hurry up!
+            before they are sold out.
           </p>
         </div>
         <div className="grid  md:grid-cols-2 gap-6 mt-10 lg:mt-16 lg:gap-4 lg:grid-cols-4">

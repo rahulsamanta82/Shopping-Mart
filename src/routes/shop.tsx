@@ -40,17 +40,17 @@ const Shop = () => {
   console.log(products);
 
   return (
-    <main className="flex  container flex-col py-20">
+    <main className="flex  container flex-col my-10 md:py-20">
       <h1 className="text-4xl text-center pb-10">Our Shop</h1>
-      <div className="flex gap-5">
-        <div className="w-1/6 p-2 border-r-2 h-[380px]  ">
+      <div className="flex flex-col md:flex-row gap-5">
+        <div className="md:w-1/6 p-2 border-b-2 md:border-r-2  md:h-[380px]  ">
           <FilterSiderBar
             filterProductsByCategory={filterProductsByCategory}
             filterProductsByPrice={filterProductsByPrice}
           />
         </div>
 
-        <div className="grid grid-cols-3 gap-5 w-3/4 ">
+        <div className="grid  md:grid-cols-3 md:gap-5 md:w-3/4 ">
           {products?.length <= 0 ? (
             Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
           ) : filteredProducts.length <= 0 ? (
