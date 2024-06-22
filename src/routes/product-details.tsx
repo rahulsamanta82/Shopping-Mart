@@ -27,21 +27,21 @@ const ProductDetails = () => {
   const { title, description, price, image } = product;
 
   return (
-    <div className="container flex  pt-20 gap-6">
-      <div className="m-5 w-1/2">
+    <div className="container flex flex-col md:flex-row pt-10 md:pt-20 md:gap-6">
+      <div className="m-5 md:w-1/2">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover zoom-in"
         />
       </div>
-      <div className="space-y-2 w-1/2">
+      <div className="space-y-2 md:w-1/2">
         <h1 className="text-3xl font-semibold py-2">{title}</h1>
         <p className="capitalize text-sm  text-gray-800 ">{description}</p>
         <p className="text-2xl ">
           Rs: <strong>{price}</strong>
         </p>
-        <div className="space-x-4">
+        <div className="space-x-4 space-y-3">
           <Cart product={product} />
           <Cart product={product} showCart={true} />
         </div>
