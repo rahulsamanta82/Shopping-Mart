@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
 import { navLinks } from "../../constants";
-import Button from "../ui/Button";
+import { Button } from "../ui/button";
 
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -65,7 +65,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <Button variant="secondary"> Cart</Button>
+          <Button className="mx-4">Cart</Button>
         </nav>
         {/* xs to lg */}
         {mobileMenu && <MobileNav />}

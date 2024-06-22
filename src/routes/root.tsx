@@ -5,7 +5,6 @@ export default function Root() {
   return (
     <main>
       <Navbar />
-
       <div id="detail">
         <Outlet />
       </div>
