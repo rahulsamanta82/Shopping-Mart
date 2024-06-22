@@ -1,4 +1,6 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
+import Navbar from "./components/Layout/Navbar";
+import Button from "./components/ui/Button";
 
 interface RouteError {
   statusText?: string;
@@ -11,11 +13,21 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+      <Navbar />
+      <div className="h-[70vh] flex items-center flex-col justify-center space-y-3">
+        <h1 className="text-5xl font-bold">404!</h1>
+        <h2 className="text-3xl">Sorry, we could not find that page.</h2>
+        <p>
+          The page you are looking for doesn&apos;t exist or has been moved.
+        </p>
+        <p>
+          {error.statusText} {error.message}
+        </p>
+        <Link to="/">
+          {" "}
+          <Button>Return Home</Button>
+        </Link>
+      </div>
     </div>
   );
 }
