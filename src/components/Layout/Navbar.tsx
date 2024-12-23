@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between h-16 lg:h-20 ">
           <div className="flex-shrink-0">
             <Link to="/" className="flex">
-              <h1 className="text-2xl  font-serif uppercase">React Ecom</h1>
+              <h1 className="text-2xl  font-serif uppercase">Trend Mart</h1>
             </Link>
           </div>
           <button

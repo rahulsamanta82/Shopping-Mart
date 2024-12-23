@@ -15,6 +15,7 @@ import {
   decrementProduct,
 } from "../../store/features/cart";
 import { RootState } from "../../store";
+import { useState } from "react";
 
 interface CartProps {
   product?: IProduct;
@@ -25,13 +26,27 @@ interface CartProps {
 const Cart = ({ product, showCart, className }: CartProps) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state?.cart.items);
+  const [transactionId, setTransactionId] = useState<string | null>(null);
+  const [showSummary, setShowSummary] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => total + item.price * item.count, 0);
+  };
+
+  const handleCheckout = () => {
+    const randomId = `TXN${Math.floor(100000 + Math.random() * 900000)}`;
+    setTransactionId(randomId);
+    setShowSummary(true);
+    setIsCartOpen(false); // Close the cart on checkout
+  };
 
   return (
     <div className={`overflow-y-auto-auto ${className}`}>
-      <Sheet>
+      <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
         <SheetTrigger asChild>
           {showCart ? (
-            <Button>Cart</Button>
+            <Button onClick={() => setIsCartOpen(true)}>Cart</Button>
           ) : (
             <Button onClick={() => dispatch(addToCart(product))}>
               Add to Cart
@@ -57,7 +72,6 @@ const Cart = ({ product, showCart, className }: CartProps) => {
                       alt={product.title}
                       className="w-32 h-28"
                     />
-
                     <div>
                       <h5>{product.title}</h5>
                       <p>Price : {product.price}</p>
@@ -66,10 +80,9 @@ const Cart = ({ product, showCart, className }: CartProps) => {
                           onClick={() => dispatch(decrementProduct(product))}
                           className="cursor-pointer hover:text-slate-900 text-xl mx-2 font-semibold"
                         >
-                          {" "}
-                          -{" "}
+                          -
                         </span>
-                        {product.count}{" "}
+                        {product.count}
                         <span
                           onClick={() => dispatch(addToCart(product))}
                           className="cursor-pointer hover:text-slate-900 text-xl  mx-2 font-semibold"
@@ -83,12 +96,20 @@ const Cart = ({ product, showCart, className }: CartProps) => {
               })
             )}
           </div>
+          {showSummary && transactionId && (
+            <div className="mt-4 p-4 border-t">
+              <h3 className="text-lg font-semibold">Order Summary</h3>
+              <p>Transaction ID: {transactionId}</p>
+              <p>Total Amount: INR {calculateTotal().toFixed(2)}</p>
+            </div>
+          )}
           <SheetFooter>
-            <SheetClose asChild>
-              <Button disabled={cartItems.length <= 0 ? true : false}>
-                Checkout
-              </Button>
-            </SheetClose>
+            <Button
+              disabled={cartItems.length <= 0}
+              onClick={handleCheckout}
+            >
+              Checkout
+            </Button>
           </SheetFooter>
         </SheetContent>
       </Sheet>

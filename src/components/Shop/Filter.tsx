@@ -127,7 +127,7 @@ const FilterSiderBar = ({
             className="w-full  bg-gradient-to-r from-slate-500 to-slate-700 rounded-full outline-none"
             style={{ color: "black" }}
           />
-          <p>Price: ${price}</p>
+          <p>Price: INR {price}</p>
         </div>
       </div>
     </>

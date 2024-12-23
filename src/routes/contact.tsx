@@ -4,15 +4,15 @@ const Contact = () => {
       <h1 className="text-3xl font-bold ">Contact Us</h1>
       <div className="flex flex-col items-center justify-center">
         <p className="text-xl">
-          Email: abc
+          Email: rs@gmail.com
           <a href="mailto: abc@abcxy.xyz" className="text-blue-500"></a>
         </p>
         <p className="text-xl">
-          Phone: 1234567890
+          Phone: 82503011XX
           <a href="tel: 1234567890" className="text-blue-500"></a>
         </p>
         <p className="text-xl">
-          Address: 123, XYZ Street, ABC City
+          Address: New Town, Kolkata, 721148
           <a href="https://goo.gl/maps/abcxyz" className="text-blue-500"></a>
         </p>
       </div>

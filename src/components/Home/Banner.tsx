@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="relative h-[80vh] flex items-center justify-center text-white">
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold">
-            Welcome to our store
+            Welcome to Trend Mart
           </h1>
           <p className="md:text-xl mt-4">Get the best deals on our products</p>
           <Link to="/shop">
